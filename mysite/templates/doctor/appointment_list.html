@@ -1,0 +1,59 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}"/>
+<style>
+  /* 여백 추가 */
+  .title-section {
+    margin-top: 20px;
+  }
+
+  .content-section {
+    margin-bottom: 20px;
+  }
+</style>
+<html>
+
+  <head>
+    <title>Appointment List</title>
+  </head>
+
+  <body>
+    <div class="container my-3">
+      {% include 'doctor/tab.html' %}
+      <div class="title-section">
+        <h1 class="fw-bold">예약 리스트</h1>
+      </div>
+      <form action="{% url 'appointment_list' %}" method="GET">
+        <label for="doctor_name">의사 이름:</label>
+        <input type="text" id="doctor_name" name="doctor_name"/>
+        <button type="submit" class="btn btn-primary">검색</button>
+      </form>
+      <ul>
+        {% for appointment in appointments %}
+          <div class="content-section">
+            <li>
+              <strong>환자 이름:</strong>
+              {{ appointment.patient.name }}<br/>
+              <strong>의사 이름:</strong>
+              {{ appointment.doctor.name }}<br/>
+              <strong>예약 요청 시간 :</strong>
+              <!-- 날짜 형식을 '%Y-%m-%d %H:%M'으로 변환 -->
+              {{ appointment.request_datetime|date:"Y-m-d H:i" }}<br/>
+              <strong>예약 수락 만료 시간:</strong>
+              {{appointment.expiration_datetime|date:"Y-m-d H:i"}}<br/>
+
+              {% if not appointment.accepted %}
+                <form action="{% url 'accept_appointment' appointment.id %}" method="POST">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-primary">수락</button>
+                </form>
+              {% else %}
+                <button class="btn btn-success" disabled="disabled">예약 완료</button>
+              {% endif %}
+            </li>
+          </div>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+
+</html>

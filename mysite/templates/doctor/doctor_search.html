@@ -1,0 +1,49 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}"/>
+<style>
+  /* 여백 추가 */
+  .title-section {
+    margin-top: 20px;
+  }
+</style>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Doctor Search</title>
+  </head>
+
+  <body>
+    <div class="container my-3">
+      {% include 'doctor/tab.html' %}
+      <div class="title-section">
+        <h1 class="fw-bold">영업 중인 의사 조회</h1>
+        <p>의사명과 진료과목, 병원이름, 비급여과목 등 함께 조회 가능합니다.</p>
+      </div>
+      <form action="{% url 'doctor_search' %}" method="GET">
+        <label for="query">검색:</label>
+        <input type="text" name="query" id="query"/>
+        <label for="datetime_input">날짜:</label>
+        <input type="datetime-local" name="datetime_input" id="datetime_input"/>
+        <button type="submit" class="btn btn-primary">조회</button>
+      </form>
+      {% if doctors %}
+        <h2 class="fw-bold">검색 결과</h2>
+        <ul>
+          {% for doctor in doctors %}
+            <li>
+              <a href="{% url 'doctor_detail' doctor.id %}">
+                {{ doctor.name }}
+                -
+                {{ doctor.hospital_name }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No matching doctors found.</p>
+      {% endif %}
+    </div>
+  </body>
+
+</html>

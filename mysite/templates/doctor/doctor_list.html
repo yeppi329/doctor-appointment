@@ -1,0 +1,36 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}"/>
+<style>
+  /* 여백 추가 */
+  .title-section {
+    margin-top: 20px;
+  }
+</style>
+<html>
+
+  <head>
+    <title>의사 목록</title>
+  </head>
+
+  <body>
+    <div class="container my-3">
+      {% include 'doctor/tab.html' %}
+      <div class="title-section">
+        <h1 class="fw-bold">의사 목록</h1>
+      </div>
+      <form method="GET" action="{% url 'doctor_list' %}">
+        <input type="text" name="query" value="{{ query }}"/>
+        <button type="submit" class="btn btn-primary">검색</button>
+      </form>
+
+      <ul>
+        {% for doctor in doctor_list %}
+          <li>
+            <a href="{% url 'doctor_detail' doctor.id %}">{{ doctor.name }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+
+</html>

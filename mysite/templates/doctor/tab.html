@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>탭 레이아웃</title>
+    <!-- 부트스트랩 CSS 링크 추가 -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'doctor_list' %}">의사 목록</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'doctor_search' %}">의사 검색</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'appointment_request' %}">진료 예약</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'appointment_list' %}">진료 예약 목록</a>
+      </li>
+    </ul>
+
+    <!-- 부트스트랩 JavaScript 및 jQuery CDN 추가 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+
+</html>

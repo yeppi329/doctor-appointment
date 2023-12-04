@@ -1,0 +1,31 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}"/>
+<html>
+
+  <head>
+    <title>의사 정보</title>
+  </head>
+
+  <body>
+    <div class="container my-3">
+      {% include 'doctor/tab.html' %}
+      <h1 class="fw-bold">의사 정보</h1>
+      <p>의사 이름:
+        {{ doctor.name }}</p>
+      <p>병원 이름:
+        {{ doctor.hospital_name }}</p>
+      <p>진료과:
+        {% if doctor.departments.all %}
+          <ul>
+            {% for department in doctor.departments.all %}
+              <li>{{ department.name }}</li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          정보 없음
+        {% endif %}
+      </p>
+    </div>
+  </body>
+
+</html>
