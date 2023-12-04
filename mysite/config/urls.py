@@ -15,10 +15,30 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.http import HttpResponse
+
+def api_guide(request):
+    # API 엔드포인트에 대한 설명을 HTML 형식으로 작성하여 반환합니다.
+    content = """
+    <html>
+    <head>
+        <title>API 엔드포인트 안내</title>
+    </head>
+    <body>
+        <h1>첫 로딩 페이지입니다.</h1>
+        <p>아래 링크로 이동시 탭을 통해 모든 기능 사용 가능합니다.</p>
+        <ul>
+            <li><a href="/api/doctor_list">시작 페이지</a></li>
+        </ul>
+    </body>
+    </html>
+    """
+    return HttpResponse(content)
 
 #from doctor import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     #path('doctor/', views.index),
     path('api/', include('doctor.urls')),
+    path('', api_guide),
 ]

@@ -9,10 +9,11 @@ Mysite는 Django 및 SQLite를 사용하여 진료 예약 관리 시스템을 �
 
 - Python 3.6 이상을 설치합니다.
 - 가상 환경을 생성하고 활성화합니다:
-    
+
+    ```    
     C:\projects>C:\venvs\mysite\Scripts\activate
     (mysite) C:\projects>cd mysite
-
+    ```
 
 ### 프로젝트 설치
 - 제공드린 압축파일을 원하는 폴더에 풀어주세요.
@@ -48,7 +49,7 @@ Mysite는 Django 및 SQLite를 사용하여 진료 예약 관리 시스템을 �
 - AppointmentRequest: 예약 관련 정보
 
 ## URL
-- Doctor List: /doctor_list/에서 의사 목록 확인 가능
-- Doctor Search: /doctor/search/에서 의사 검색 및 정보 확인 가능
-- Appointment Request: /appointment_request/에서 예약을 요청 진행
-- Appointment List: /appointment_list/에서 예약 목록 확인 및 수락 진행 여부 확인 가능
+- Doctor List: /api/doctor_list/에서 의사 목록 확인 가능
+- Doctor Search: /api/doctor/search/에서 의사 검색 및 정보 확인 가능
+- Appointment Request: /api/appointment_request/에서 예약을 요청 진행
+- Appointment List: /api/appointment_list/에서 예약 목록 확인 및 수락 진행 여부 확인 가능
