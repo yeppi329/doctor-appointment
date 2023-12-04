@@ -20,16 +20,22 @@ Mysite는 Django 및 SQLite를 사용하여 진료 예약 관리 시스템을 �
 ### 프로젝트 실행
 - Djnago 프로젝트 디렉토리로 이동하여 종속성 셋팅을 합니다.
 
+    ```
     pip install -r requirements/requirements.txt
+    ```
 
 - 데이터베이스 마이그레이션을 진행합니다..
 
+    ```
     python manage.py makemigrations
     python manage.py migrate
+    ```
 
 - 서버를 실행합니다.
 
+    ```
     python manage.py runserver
+    ```
 
 - 브라우저를 통해 'http://127.0.0.1:8000/'에 접속하여 확인합니다.
 
