@@ -51,4 +51,4 @@ Mysite는 Django 및 SQLite를 사용하여 진료 예약 관리 시스템을 �
 - Doctor List: /doctor_list/에서 의사 목록 확인 가능
 - Doctor Search: /doctor/search/에서 의사 검색 및 정보 확인 가능
 - Appointment Request: /appointment_request/에서 예약을 요청 진행
-- Appointment List: /appointment_list/에서 예약 목록 확인 가능
+- Appointment List: /appointment_list/에서 예약 목록 확인 및 수락 진행 여부 확인 가능
